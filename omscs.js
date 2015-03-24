@@ -2,11 +2,9 @@
 // and redirect to the login page if login expires.
 if (document.cookie.search('idp.gatech.edu') > 0) {
   var welcome = '/georgia-tech/welcome';
-  var signin = '/account/auth';
   var message = 'Login to Udacity with Georgia Tech';
   var lastTimestamp = Date.now();
   var period = 1000 * 60 * 10;  // 10min
-  console.log('gatech');
   // poll every 30 seconds but only activate once every $period
   // ensures prompt firing after laptop wake without taxing Udacity
   // servers
@@ -17,9 +15,7 @@ if (document.cookie.search('idp.gatech.edu') > 0) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', welcome, true);
     xhr.onload = function() {
-      if (window.location.pathname != welcome &&
-          window.location.pathname != signin &&
-          this.responseText.search(message) > 0) {
+      if (this.responseText.search(message) > 0) {
         alert('You have been logged out of Udacity');
         window.location = welcome;
       }

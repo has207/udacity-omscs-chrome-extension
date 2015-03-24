@@ -9,8 +9,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["*://www.udacity.com/*"],
-      "exclude_matches": ["*://www.udacity.com/georgia-tech/welcome"],
+      "matches": ["*://www.udacity.com/course/viewer"],
       "js": ["omscs.js"]
     },
     {
