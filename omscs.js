@@ -19,6 +19,7 @@ if (document.cookie.search('idp.gatech.edu') > 0) {
         alert('You have been logged out of Udacity');
         window.location = welcome;
       }
+      lastTimestamp = Date.now();
     };
     xhr.send();
   }, 30 * 1000);
